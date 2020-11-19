@@ -13,14 +13,6 @@ class Matrix:
 	"""
 	Matrice numérique stockée en tableau 1D en format rangée-major.
 
-	Par exemple, soit la matrice :
-	11 12 13 14
-	21 22 23 24
-	31 32 33 34
-	On construirait un tableau de cette façon.
-	tab = [11, 12, 13, 14, 21, 22, 23, 24, 31, 32, 33, 34]
-	Pour accéder à la deuxième rangée, quatrième colonne (élément de valeur 24), on ferait mat[1*4 + 3]
-
 	:param height: La hauteur (nb de rangées)
 	:param width: La largeur (nb de colonnes)
 	:param data: Si une liste, alors les données elles-mêmes (affectées, pas copiées). Si un nombre, alors la valeur de remplissage
