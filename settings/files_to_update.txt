@@ -9,4 +9,4 @@ settings/test_associations.json
 settings/variables.txt
 test_exercice.py
 _exercice_version_prof.py
-_game_version_prof.py
+_matrix_version_prof.py
