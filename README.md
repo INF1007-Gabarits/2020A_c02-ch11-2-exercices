@@ -122,7 +122,7 @@ Sortie :
 ```
 ### Addition
 
-On veut la multiplication matricielle (matrice * matrice) et scalaire (matrice * scalaire).
+On veut l'addition/soustraction matricielle (matrice + matrice).
 
 Exemple :
 ```python
