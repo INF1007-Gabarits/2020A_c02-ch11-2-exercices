@@ -46,31 +46,31 @@ class Matrix:
 	def data(self):
 		return self.__data
 
-	def __getitem__(self, indexes):
+	# TODO: Accès à un élément en lecture
+	def TODO(TODO):
 		"""
 		Indexation rangée-major
 
 		:param indexes: Les index en `tuple` (rangée, colonne)
 		"""
-
 		if not isinstance(indexes, tuple):
 			raise IndexError()
 		if indexes[0] >= self.height or indexes[1] >= self.width:
 			raise IndexError()
-		return self.data[indexes[0] * self.width + indexes[1]]
+		# TODO: Retourner la valeur
 
-	def __setitem__(self, indexes, value):
+	# TODO: Affectation à un élément
+	def TODO(TODO):
 		"""
 		Indexation rangée-major
 
 		:param indexes: Les index en `tuple` (rangée, colonne)
 		"""
-		
 		if not isinstance(indexes, tuple):
 			raise IndexError()
 		if indexes[0] >= self.height or indexes[1] >= self.width:
 			raise IndexError()
-		self.data[indexes[0] * self.width + indexes[1]] = value
+		# TODO: L'affectation
 
 	def __len__(self):
 		"""
@@ -78,22 +78,20 @@ class Matrix:
 		"""
 		return self.height * self.width
 
-	def __str__(self):
-		lines = []
-		for i in range(self.height):
-			lines.append(" ".join([str(self[i, j]) for j in range(self.width)]))
-		return "\n".join(lines)
+	# TODO: Représentation affichable (conversion pour print)
+	def TODO(TODO):
+		# TODO: Chaque rangée est sur une ligne, avec chaque élément séparé d'un espace.
+		pass
 
-	def __format__(self, format_spec):
-		fmt_template = f"{{:{format_spec}}}"
-		lines = []
-		for i in range(self.height):
-			lines.append(" ".join([fmt_template.format(self[i, j]) for j in range(self.width)]))
-		return "\n".join(lines)
+	# TODO: Représentation officielle
+	def TODO(TODO):
+		# TODO: une string qui représente une expression pour construire l'objet.
+		pass
 
-
-	def __repr__(self):
-		return f"Matrix({self.height.__repr__()}, {self.width.__repr__()}, {self.data.__repr__()})"
+	# TODO: String formatée
+	def TODO(TODO):
+		# TODO: On veut pouvoir dir comment chaque élément doit être formaté en passant la spécification de formatage qu'on passerait à `format()`
+		pass
 
 	def clone(self):
 		return Matrix(self.height, self.width, self.data)
@@ -107,49 +105,41 @@ class Matrix:
 	def __pos__(self):
 		return self.copy()
 
-	def __neg__(self):
-		return Matrix(self.height, self.width, [-e for e in self.data])
+	# TODO: Négation
+	def TODO(TODO):
+		pass
 
-	def __add__(self, other):
-		if not self.has_same_dimensions(other):
-			raise ValueError(Matrix)
-		return Matrix(self.height, self.width, [e1 + e2 for e1, e2 in zip(self.data, other.data)])
-
-	def __sub__(self, other):
-		return self + -other
-
-	def __mul__(self, other):
+	# TODO: Addition
+	def TODO(TODO):
+		pass
+	
+	# TODO: Soustraction
+	def TODO(TODO):
+		pass
+	
+	# TODO: Multiplication matricielle/scalaire
+	def TODO(TODO):
 		if isinstance(other, Matrix):
-			if self.height != other.width:
-				raise ValueError(Matrix)
+			# TODO: Multiplication matricielle.
 			# Rappel de l'algorithme simple pour C = A * B, où A, B sont matrices compatibles (hauteur_A = largeur_B)
 			# C = Matrice(hauteur_A, largeur_B)
 			# Pour i dans [0, hauteur_C[
 				# Pour j dans [0, largeur_C[
 					# Pour k dans [0, largeur_A[
 						# C(i, j) = A(i, k) * B(k, j)
-			result = Matrix(self.height, other.width)
-			for i in range(result.height):
-				for j in range(result.width):
-					for k in range(self.width):
-						result[i, j] += self[i, k] * other[k, j]
-			return result
+			pass
 		elif isinstance(other, numbers.Number):
-			return Matrix(self.height, self.width, [e * other for e in self.data])
+			# TODO: Multiplication scalaire.
+			pass
 		else:
 			raise TypeError()
 
-	def __rmul__(self, other):
-		if isinstance(other, numbers.Number):
-			return self * other
-		else:
-			raise TypeError()
+	# TODO: Multiplication scalaire avec le scalaire à gauche
 
 	def __abs__(self):
 		return Matrix(self.height, self.width, [abs(e) for e in self.data])
 
-	def __eq__(self, other):
-		return self is other or (self.height, self.width, self.data) == (other.height, other.width, other.data)
+	# TODO: Égalité entre deux matrices
 
 	@classmethod
 	def identity(cls, width):
